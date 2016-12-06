@@ -11,6 +11,8 @@
 		<h:form id="frm">
 			
 			<p:toolbar>
+			
+			<!-- O Update="@form", serve para atualizar o formulário após ser enviado. -->
 				<p:toolbarGroup>
 					<p:commandButton value="Salvar" action="#{cadastroOrcamentoBean.salvar}"
 						process="@this capaPanel" update="@form" />

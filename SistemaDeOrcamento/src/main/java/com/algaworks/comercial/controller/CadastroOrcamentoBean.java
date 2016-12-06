@@ -18,9 +18,11 @@ public class CadastroOrcamentoBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	//injetando o serviço de gestão do orçamento
 	@Inject
 	private GestaoOrcamentos gestaoOrcamentos;
 	
+	//Instanciando a classe Orçamento, essa é a nossa entidade
 	private Orcamento orcamento = new Orcamento();
 	
 	private OrcamentoItem item;
@@ -34,10 +36,16 @@ public class CadastroOrcamentoBean implements Serializable {
 		item.setOrcamento(orcamento);
 	}
 	
+	/*
+	 *Método de salvar o orçamento 
+	 */
 	public void salvar() {
 		gestaoOrcamentos.salvar(orcamento);
+		
+		//quando instanciamos o orçamento, ele limpa o formulário após carregar.
 		orcamento = new Orcamento();
 		
+		//mensagem caso o orçamento seja gravado corretamente.
 		FacesMessage msg = new FacesMessage("Orçamento salvo com sucesso!");
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
