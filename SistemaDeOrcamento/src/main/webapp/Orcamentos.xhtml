@@ -57,6 +57,8 @@
 				action="#{cadastroOrcamentoBean.novoItem}"
 				oncomplete="PF('itemDialog').show()"
 				process="@this" update="itemPanel">
+				
+				<!-- Limpando os campos do dialog -->
 				<p:resetInput target="itemPanel" />
 			</p:commandButton>
 			
@@ -110,7 +112,8 @@
 							action="#{cadastroOrcamentoBean.adicionarItem}"
 							process="itemPanel" update="itemPanel itensTable"
 							oncomplete="if (!args.validationFailed) PF('itemDialog').hide()" />
-					
+					<!-- O oncomplete é necessário tratar ele, pois mesmo estando errado um dos campos, ele fecha o dialog após clicar em adicionar
+					o args é do próprio oncomplete, nesse caso estamos verificando se valido ele fecha o dialog se não validou ele continua aberto -->
 					</p:panelGrid>
 					
 				</h:panelGroup>

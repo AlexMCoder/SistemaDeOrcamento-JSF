@@ -27,10 +27,23 @@ public class CadastroOrcamentoBean implements Serializable {
 	
 	private OrcamentoItem item;
 	
+	
+	/*
+	 * 
+	 * Quando clicar no botão de Novo item, iremos instanciar um tipo de OrcamentoItem
+	 * com isso o item adicionado no método adicionarItem já não vai estar nulo, na hora que clicar em adicionar item
+	 */
 	public void novoItem() {
 		item = new OrcamentoItem();
 	}
 	
+	
+	/*
+	 *Adicionando um item no pedido.
+	 *Acessamos o orcamento da classe Orcamento, pegando o getItens que é uma lista de OrcamentoItem
+	 *Nesse caso não precisamos instanciar ela aqui, pois ela já está sendo instanciada dentro de Orcamento
+	 *e em seguida adicionamos um novo item, salvando dentro de orcamento
+	 */
 	public void adicionarItem() {
 		orcamento.getItens().add(item);
 		item.setOrcamento(orcamento);
